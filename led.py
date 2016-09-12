@@ -23,12 +23,14 @@ def turn_light_off():
 
 try:
     while True:
-        if GPIO.input(15) == 1 and light_is_on == False:
-            print "here 1"
-            turn_light_on()
-        elif GPIO.input(15) == 1 and light_is_on == True:
-            print "here 2"
-            turn_light_off()
+        if GPIO.input(15) == 1:
+            print "down"
+        # if GPIO.input(15) == 1 and light_is_on == False:
+        #     print "here 1"
+        #     turn_light_on()
+        # elif GPIO.input(15) == 1 and light_is_on == True:
+        #     print "here 2"
+        #     turn_light_off()
 
 except KeyboardInterrupt:
     servo.stop()
