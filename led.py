@@ -10,9 +10,9 @@ servo.start(7.5)
 
 try:
     while True:
-        servo.ChangeDutyCycle(9.5)
+        servo.ChangeDutyCycle(8.5)
         time.sleep(1)
-        servo.ChangeDutyCycle(5.5)
+        servo.ChangeDutyCycle(6.5)
         time.sleep(1)
 
 except KeyboardInterrupt:
