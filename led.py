@@ -24,7 +24,7 @@ def turn_light_off():
 try:
     while True:
         turn_light_on()
-        turn_light_off
+        turn_light_off()
         # if GPIO.input(15) == 1:
         #     print "down"
         # if GPIO.input(15) == 1 and light_is_on == False:
