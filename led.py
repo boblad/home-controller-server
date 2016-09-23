@@ -3,36 +3,35 @@ import time
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
-GPIO.setup(18, GPIO.OUT)
-GPIO.setup(15, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+GPIO.setup(27, GPIO.OUT)
+GPIO.setup(15, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
-servo = GPIO.PWM(18, 50)
+servo = GPIO.PWM(27, 50)
 servo.start(7.5)
 
 light_is_on = False
 
 def turn_light_on():
-    light_is_on = True
     servo.ChangeDutyCycle(9.5)
-    time.sleep(1)
+    time.sleep(0.6)
 
 def turn_light_off():
-    light_is_on = False
     servo.ChangeDutyCycle(5.5)
-    time.sleep(1)
+    time.sleep(0.6)
 
 try:
     while True:
-        # turn_light_on()
-        # turn_light_off()
-        # if GPIO.input(15) == 1:
-        #     print "down"
-        if GPIO.input(15) == 1 and light_is_on == False:
+	input_state = GPIO.input(15)
+	print input_state
+        if input_state == False and light_is_on == False:
             print "here 1"
+	    light_is_on = True
             turn_light_on()
-        elif GPIO.input(15) == 1 and light_is_on == True:
+        elif input_state == False and light_is_on == True:
             print "here 2"
+	    light_is_on = False
             turn_light_off()
+	time.sleep(0.05)
 
 except KeyboardInterrupt:
     servo.stop()
