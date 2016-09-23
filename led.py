@@ -4,7 +4,7 @@ import time
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 GPIO.setup(18, GPIO.OUT)
-GPIO.setup(15, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+# GPIO.setup(15, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 servo = GPIO.PWM(18, 50)
 servo.start(7.5)
